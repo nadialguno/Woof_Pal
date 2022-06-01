@@ -1,0 +1,11 @@
+<h1> Hello! This is the show</h1>
+<%= cl_image_tag @schedule.dog.photo.key, height: 300, width: 400, crop: :fill %>
+<%= (Date.today - @schedule.dog.born_on).to_i %>
+
+<%= @schedule.dog.name %>
+
+<ul>
+  <% @schedule.next_appointments.each do |appointment| %>
+    <li><%= appointment %></li>
+  <% end %>
+</ul>
