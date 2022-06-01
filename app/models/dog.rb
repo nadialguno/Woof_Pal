@@ -10,11 +10,16 @@ class Dog < ApplicationRecord
   end
 
   def age_display
-    if (0..1).include?(age_in_days.in_years)
-      "#{age_in_days.in_months.floor % 12} months"
-    elsif (1..4).include?(age_in_days.in_years)
+    case age_in_days.in_years
+    when 0..1
+      if age_in_days.in_months < 1
+        "#{age_in_days.in_days.floor % 12} days"
+      else
+        "#{age_in_days.in_months.floor % 12} months"
+      end
+    when 1..4
       "#{age_in_days.in_years.floor} years and #{age_in_days.in_months.floor % 12} months"
-    elsif (4..Float::INFINITY).include?(age_in_days.in_years)
+    when 4..Float::INFINITY
       "#{age_in_days.in_years.floor} years"
     end
   end
