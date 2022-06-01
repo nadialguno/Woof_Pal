@@ -8,11 +8,26 @@ class Appointment < ApplicationRecord
   scope :grooming, -> { where(type: "Appointment::Grooming") }
   scope :vaccination, -> { where(type: "Appointment::Vaccination") }
 
+  def title
+    self.class.name.gsub(/Appointment::/, "")
+  end
+
   def self.next(dog)
     new(dog: dog, scheduled_on: dog.born_on + next_appointment_in_days(dog))
   end
 
   def self.next_appointment_in_days(dog)
+    next_initial_appointment_in_days(dog) || next_calculated_interval_appointment(dog)
+  end
+
+  def self.next_calculated_interval_appointment(dog)
+    # Chance for a bug here
+    result = self::INITIAL_APPOINTMENTS.last
+    result += self::INTERVAL while result < dog.age_in_days
+    result
+  end
+
+  def self.next_initial_appointment_in_days(dog)
     self::INITIAL_APPOINTMENTS.find { |days| days > dog.age_in_days }
   end
 end
