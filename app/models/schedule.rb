@@ -1,46 +1,19 @@
 class Schedule
-  INITIAL_DEWORMING = [
-    { delta: 15.days,  type: Appointment::Deworming },
-    { delta: 30.days,  type: Appointment::Deworming },
-    { delta: 45.days,  type: Appointment::Deworming },
-    { delta: 106.days, type: Appointment::Deworming },
-    { delta: 137.days, type: Appointment::Deworming },
-    { delta: 167.days, type: Appointment::Deworming },
-  ]
+  attr_reader :dog
 
-  INITIAL_GROOMING = [
-    { delta: 183.days, type: Appointment::Grooming },
-  ]
-
-  INITIAL_VACCINATION = [
-    { delta: 61.days,  type: Appointment::Vaccination },
-    { delta: 76.days,  type: Appointment::Vaccination },
-    { delta: 91.days,  type: Appointment::Vaccination },
-    { delta: 106.days, type: Appointment::Vaccination },
-    { delta: 122.days, type: Appointment::Vaccination },
-    { delta: 137.days, type: Appointment::Vaccination },
-    { delta: 152.days, type: Appointment::Vaccination },
-    { delta: 167.days, type: Appointment::Vaccination },
-  ]
-
-  def initialize(dog)
+  def initialize(dog, current_day = Date.today)
     @dog = dog
+    @current_day = current_day
   end
 
-  def appointments
-    #schedule generator
-    #show upcoming appointment instances
+  def next_appointments
+    @dog.appointments.after(@current_day)
   end
 
-  def update
-    # Returns without doing anything, if there are 3 persisted next appos
-
-    # Make sure there are 3 persisted appos
-
-    # If there are no appointments yet
-    ## Generate the first 3 DW/VAX/GR
-    # else
-    ## Generate the needed ones, based
-    ## on the interval since the last of the same kind
+  def update!
+    Appointment::Deworming.next(@dog).save! unless next_appointments.deworming.exists?
+    Appointment::Grooming.next(@dog).save! unless next_appointments.grooming.exists?
+    Appointment::Vaccination.next(@dog).save! unless next_appointments.vaccination.exists?
+    @dog.reload
   end
 end
