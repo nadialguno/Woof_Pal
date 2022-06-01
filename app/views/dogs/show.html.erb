@@ -1,1 +1,5 @@
 <h1> Hello! This is the show</h1>
+<%= cl_image_tag @dog.photo.key, height: 300, width: 400, crop: :fill %>
+<%= (Date.today - @dog.born_on).to_i %>
+
+<%= @dog.name %>

@@ -8,15 +8,17 @@ class DogsController < ApplicationController
     @dog.user = current_user
 
     if @dog.save
-      redirect_to dog_path(@dog.id)
+      redirect_to dog_path(@dog)
     else
       render :new
     end
-  end
 
-  # def show
-  #   @dog = Dog.find(params[:id])
-  # end
+    def show
+      @dog = Dog.find(params[:id])
+    end
+
+
+  end
 
   private
 
