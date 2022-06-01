@@ -6,12 +6,13 @@
 // General style
 $font-family-sans-serif:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 lighten($wp-green, 40%);
 $font-size-base: 1rem;
 
 // Colors
 $body-color: $gray;
-$primary:    $blue;
+$primary:    $wp-green;
+$secondary:  $wp-melon;
 $success:    $green;
 $info:       $yellow;
 $danger:     $red;
