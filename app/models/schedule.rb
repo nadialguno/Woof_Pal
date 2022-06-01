@@ -7,7 +7,7 @@ class Schedule
   end
 
   def next_appointments
-    @dog.appointments.after(@current_day)
+    @dog.appointments.after(@current_day).order(scheduled_on: :asc)
   end
 
   def update!
