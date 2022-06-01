@@ -8,16 +8,10 @@ class DogsController < ApplicationController
     @dog.user = current_user
 
     if @dog.save
-      redirect_to dog_path(@dog)
+      redirect_to dog_schedule_path(@dog)
     else
       render :new
     end
-
-    def show
-      @dog = Dog.find(params[:id])
-    end
-
-
   end
 
   private
