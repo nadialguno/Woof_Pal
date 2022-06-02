@@ -5,9 +5,10 @@ Rails.application.routes.draw do
 
   resources :dogs, only: [ :new, :create, :show]
 
-
   resources :dogs, only: [] do
-    resource :schedule, only: [:show]
+    resource :schedule, only: [:show] do
+      get "download"
+    end
   end
 
 end

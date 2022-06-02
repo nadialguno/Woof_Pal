@@ -8,7 +8,7 @@
         <h1 class="mb-0"><%= @schedule.dog.name.capitalize%><small class="h4">'s</small></h1>
         <p>Schedule</p>
          <div class="margin-top: auto">
-       <button type="button" class="btn btn-primary">Sync</button>
+       <%=link_to "Sync", download_dog_schedule_path(@schedule.dog), class: "btn btn-primary" %>
       </div>
       </div>
     </div>
