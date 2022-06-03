@@ -8,6 +8,7 @@ class Schedule
 
   def next_appointments
     @dog.appointments.after(@current_day).order(scheduled_on: :asc)
+    # + next 3
   end
 
   def update!
