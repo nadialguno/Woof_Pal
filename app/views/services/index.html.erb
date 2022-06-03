@@ -3,6 +3,6 @@
   height="250"
   frameborder="0" style="border:0"
   referrerpolicy="no-referrer-when-downgrade"
-  src="https://www.google.com/maps/embed/v1/search?key=AIzaSyD5hB8bcwJ3bgYOaMQaYn3pZs35lfgqlgQ&q=<%= params[:type] %> near Condesa in CDMX"
+  src="https://www.google.com/maps/embed/v1/search?key=<%= ENV["GOOGLE_API_KEY"] %>&q=<%= params[:type] %> near Condesa in CDMX"
   allowfullscreen>
 </iframe>
