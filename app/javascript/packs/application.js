@@ -7,6 +7,7 @@ import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
+import "@lottiefiles/lottie-player";
 
 Rails.start()
 Turbolinks.start()

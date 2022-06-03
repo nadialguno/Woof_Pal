@@ -1,7 +1,50 @@
-<h1>Welcome to Woof Pal!</h1>
-<%=link_to "Add dog info here", new_dog_path %>
-<%=link_to "Add dog info here", new_dog_path, class: "btn btn-primary" %>
-<%=link_to "Secondary", new_dog_path, class: "btn btn-secondary" %>
-<%=link_to "Danger", new_dog_path, class: "btn btn-danger" %>
-<%=link_to "Warning", new_dog_path, class: "btn btn-warning" %>
-<%=link_to "Info  ", new_dog_path, class: "btn btn-info" %>
+<div data-controller="banner">
+  <header id="header">
+    <a href="#" class="logo">Woof-Pal</a>
+    <ul>
+      <li><a href="#" class="active">Home</a></li>
+      <li><a href="#">About</a></li>
+      <li><a href="#">Destination</a></li>
+      <li><a href="#">Contact</a></li>
+      <li> <%= image_tag "https://avatars.githubusercontent.com/u/102878262?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></li>
+    </ul>
+  </header>
+
+  <section class="dog-hero">
+
+    <img src="https://freepngimg.com/thumb/categories/2254.png" alt="sun" id="sun">
+
+    <div class="text-element text-center">
+
+      <h2 id="text"><div class="fs-3">It's time for a new</div>Schedule</h2>
+      <%= link_to "Explore", new_dog_path, class: "btn btn-primary btn-lg" %>
+    </div>
+
+    <img src="https://cdn3.iconfinder.com/data/icons/people-outdoors/150/21-512.png" alt="dog" id="dog">
+
+    <img src="https://th.bing.com/th/id/R.5d2494baee7ca1d58d02f44299446499?rik=%2fUwz4T4Au%2f3jDg&riu=http%3a%2f%2fclipground.com%2fimages%2fgreen-grass-clipart-17.jpg&ehk=uk0Pd2s7YesmLiEX5uVyrJBfJDqtwiSwu3BuY7Oj43c%3d&risl=&pid=ImgRaw&r=0" alt="grass" id="grass">
+
+  </section>
+</div>
+
+<div class="container marketing">
+
+  <!-- Three columns of text below the carousel -->
+  <div class="row text-center">
+    <div class="col-lg-4">
+      <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_bu8dvacv.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+      <h2 class="fw-normal">Scheduling</h2>
+      <p>Need help getting organized? Let us make it a breeze for you.</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_noMu1C.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+      <h2 class="fw-normal">Vaccinations</h2>
+      <p>Don't know what vaccines your dog needs? We'll let you know which ones your dog needs and when to get them.</p>
+    </div><!-- /.col-lg-4 -->
+    <div class="col-lg-4">
+      <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_nsj5jdla.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+      <h2 class="fw-normal">Deworming</h2>
+      <p>You won't have to worry about planning your deworming visits any longer.</p>
+    </div><!-- /.col-lg-4 -->
+  </div><!-- /.row -->
+</div><!-- /.container -->

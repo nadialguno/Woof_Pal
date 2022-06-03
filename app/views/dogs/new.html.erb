@@ -1,15 +1,16 @@
-<h1> Hello! Here is the form</h1>
 
 <div class="container">
   <div class="row justify-content-center py-5">
     <div class="col-lg-4">
-      <h1>Register your dog</h1>
-      <%= simple_form_for @dog do |f| %>
-        <%= f.input :name %>
-        <%= f.input :born_on, html5: true %>
-         <%= f.input :photo, as: :file %>
-        <%= f.button :submit, "Submit", class: "btn btn-primary w-100 rounded-2" %>
-      <% end %>
+      <div class="bg-white p-3">
+        <h1>Register your dog</h1>
+        <%= simple_form_for @dog do |f| %>
+          <%= f.input :name %>
+          <%= f.input :born_on, html5: true %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit, "Submit", class: "btn btn-primary w-100 rounded-2" %>
+        <% end %>
+      </div>
     </div>
   </div>
 </div>
