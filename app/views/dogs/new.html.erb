@@ -1,14 +1,21 @@
 
 <div class="container">
-  <div class="row justify-content-center py-5">
+  <div class="row py-5 justify-content-center">
     <div class="col-lg-4">
-      <h1>Register your dog</h1>
-      <%= simple_form_for @dog do |f| %>
-        <%= f.input :name %>
-        <%= f.input :born_on, html5: true %>
-         <%= f.input :photo, as: :file %>
-        <%= f.button :submit, "Submit", class: "btn btn-primary w-100 rounded-2" %>
-      <% end %>
+      <div class="bg-white p-3">
+        <h1>Register your dog</h1>
+        <%= simple_form_for @dog do |f| %>
+          <%= f.input :name %>
+          <%= f.input :born_on, html5: true %>
+          <%= f.input :photo, as: :file %>
+          <%= f.button :submit, "Submit", class: "btn btn-primary w-100 rounded-2" %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-lg-3 form_image">
+      <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+      <lottie-player src="https://assets8.lottiefiles.com/temporary_files/BCOFAS.json"  background="transparent"  speed="1"  style="width: 300px; height: 400px;"  loop  autoplay></lottie-player>
+
     </div>
   </div>
 </div>

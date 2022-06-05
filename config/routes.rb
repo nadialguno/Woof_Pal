@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get "/kitchen_sink", to: 'pages#kitchen_sink'
 
   resources :dogs, only: [ :new, :create, :show]
+  resources :services, only: :index
 
   resources :dogs, only: [] do
     resource :schedule, only: [:show] do
