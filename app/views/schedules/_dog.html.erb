@@ -1,0 +1,11 @@
+<div class="p-3 bg-white">
+  <%= cl_image_tag schedule.dog.photo.key, class: 'img-fluid rounded-circle', height: 200, width: 200, crop: :fill %>
+  <h2 class="mb-0"><%= schedule.dog.name.capitalize%><small class="h4"></small></h2>
+  <p><%= schedule.dog.age_display %> old</p>
+  <div class="margin-top: auto">
+    <%= link_to download_dog_schedule_path(schedule.dog), class: "btn btn-sm btn-primary" do %>
+      <i class="far fa-calendar-alt"></i>
+      Download Calendar
+    <% end %>
+  </div>
+</div>

@@ -1,4 +1,4 @@
-<a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-2 border-top py-3">
+<div class="list-group-item mb-1 border-top py-3">
   <div class="d-flex w-100 justify-content-between">
     <div class="text-center">
       <div>
@@ -10,14 +10,14 @@
     </div>
 
     <div class="flex-grow-1 px-3">
-      <small>in <%= distance_of_time_in_words_to_now(appointment.scheduled_on) %></small>
+      <small class="<%= appointment.soon? ? 'text-danger' : 'text-muted' %>">
+        in <%= distance_of_time_in_words_to_now(appointment.scheduled_on) %>
+      </small>
       <h3 class="h2 mb-0"><%= appointment.title %></h3>
     </div>
 
-    <div>
-      <%= image_tag "deworming.png", class: "img-fluid", width: 48 %>
+    <div class="d-flex align-items-center">
+      <%= image_tag "#{appointment.title.downcase}.png", class: "img-fluid", width: 48 %>
     </div>
   </div>
-
-
-</a>
+</div>
