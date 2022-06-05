@@ -3,7 +3,7 @@
   <div class="row">
     <div class="col-3 text-center">
       <div class="sticky-top">
-        <%= cl_image_tag @schedule.dog.photo.key, class: 'rounded-circle', height: 200, width: 200, crop: :fill %>
+        <%= cl_image_tag @schedule.dog.photo.key, class: 'img-fluid rounded-circle', height: 200, width: 200, crop: :fill %>
         <p class="mb-0"><%= @schedule.dog.age_display %> old</p>
         <h1 class="mb-0"><%= @schedule.dog.name.capitalize%><small class="h4">'s</small></h1>
         <p>Schedule</p>
@@ -15,23 +15,7 @@
     <div class="col-9">
       <div class="list-group">
         <% @schedule.next_appointments.each do |appointment| %>
-          <a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-2 border-top py-3">
-            <div class="d-flex w-100 justify-content-between">
-              <div class="d-flex">
-                <p>
-                  <span class="h6">
-                    <%= appointment.scheduled_on.strftime("%b") %>
-                  </span>
-                  <br>
-                  <span class="h2">
-                    <%= appointment.scheduled_on.strftime("%d") %>
-                  </span>
-                </p>
-                <h5 class="mb-1"><%= appointment.title %></h5>
-              </div>
-              <small>in <%= distance_of_time_in_words_to_now(appointment.scheduled_on) %></small>
-            </div>
-          </a>
+          <%= render "schedules/appointment", appointment: appointment %>
         <% end %>
       </div>
     </div>

@@ -1,0 +1,23 @@
+<a href="#" class="list-group-item list-group-item-action flex-column align-items-start mb-2 border-top py-3">
+  <div class="d-flex w-100 justify-content-between">
+    <div class="text-center">
+      <div>
+        <%= appointment.scheduled_on.strftime("%b") %>
+      </div>
+      <div class="fs-2">
+        <%= appointment.scheduled_on.strftime("%d") %>
+      </div>
+    </div>
+
+    <div class="flex-grow-1 px-3">
+      <small>in <%= distance_of_time_in_words_to_now(appointment.scheduled_on) %></small>
+      <h3 class="h2 mb-0"><%= appointment.title %></h3>
+    </div>
+
+    <div>
+      <%= image_tag "deworming.png", class: "img-fluid", width: 48 %>
+    </div>
+  </div>
+
+
+</a>
