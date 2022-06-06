@@ -16,12 +16,36 @@
       </div>
     </div>
     <div class="col-7">
+      <h2>This Week...</h2>
       <div class="list-group">
-        <% @schedule.next_appointments.each do |appointment| %>
-          <%= render "schedules/appointment", appointment: appointment %>
+        <% if @schedule.next_appointments.this_week.any? %>
+          <% @schedule.next_appointments.this_week.each do |appointment| %>
+            <%= render "schedules/appointment", appointment: appointment %>
+          <% end %>
+        <% else %>
+          <p class="text-muted mb-0">Nothing here...</p>
         <% end %>
       </div>
-    </div>
 
+      <h2 class="h4 mt-3">This Month...</h2>
+      <div class="list-group">
+        <% if @schedule.next_appointments.this_month.any? %>
+          <% @schedule.next_appointments.this_month.each do |appointment| %>
+            <%= render "schedules/next_month_appointment", appointment: appointment %>
+          <% end %>
+        <% else %>
+          <p class="text-muted mb-0">Nothing here...</p>
+        <% end %>
+      </div>
+
+      <% if @schedule.next_appointments.after(Date.current.next_month).any? %>
+        <h2 class="h6 mt-3">Following months...</h2>
+        <div class="list-group">
+          <% @schedule.next_appointments.after(Date.current.next_month).each do |appointment| %>
+            <%= render "schedules/following_months_appointment", appointment: appointment %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
   </div>
 </div>

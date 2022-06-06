@@ -1,0 +1,12 @@
+<div class="list-group-item mb-1 border-top py-2">
+  <div class="d-flex w-100 justify-content-between">
+    <div class="text-center">
+      <%= appointment.scheduled_on.strftime("%b") %>
+      <%= appointment.scheduled_on.strftime("%d") %>
+    </div>
+
+    <div class="flex-grow-1 px-3">
+      <h3 class="h6 mb-0"><%= appointment.title %></h3>
+    </div>
+  </div>
+</div>
