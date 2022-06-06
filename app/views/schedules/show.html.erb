@@ -1,42 +1,58 @@
 
-
-
-
-
-
-<div class="animate__animated animate__lightSpeedInLeft">
-  <div class="container py-5">
-    <div class="row justify-content-center mb-2">
-      <div class="col-10">
-
-        <div class="text-end">
-            <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
+<div class="container py-5 animate__animated animate__lightSpeedInLeft">
+  <div class="row justify-content-center mb-2">
+    <div class="col-10">
+      <h1 class="text-center"><%= @schedule.dog.name %>'s Schedule</h1>
+      <div class="text-end">
+        <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
           Vets near me
         </button>
         <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
          Groomers near me
         </button>
-        </div>
       </div>
     </div>
-    <div class="row justify-content-center">
-      <div class="col-3 text-center">
-        <div class="sticky-top">
-          <%= render "schedules/dog", schedule: @schedule %>
-        </div>
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-3 text-center">
+      <div class="sticky-top">
+        <%= render "schedules/dog", schedule: @schedule %>
       </div>
-      <div class="col-7">
-        <div class="list-group">
-          <% @schedule.next_appointments.each do |appointment| %>
+    </div>
+    <div class="col-7">
+      <h2>This Week...</h2>
+      <div class="list-group">
+        <% if @schedule.next_appointments.this_week.any? %>
+          <% @schedule.next_appointments.this_week.each do |appointment| %>
             <%= render "schedules/appointment", appointment: appointment %>
           <% end %>
-        </div>
+        <% else %>
+          <p class="text-muted mb-0">Nothing here...</p>
+        <% end %>
       </div>
 
+      <h2 class="h4 mt-3">This Month...</h2>
+      <div class="list-group">
+        <% if @schedule.next_appointments.this_month.any? %>
+          <% @schedule.next_appointments.this_month.each do |appointment| %>
+            <%= render "schedules/next_month_appointment", appointment: appointment %>
+          <% end %>
+        <% else %>
+          <p class="text-muted mb-0">Nothing here...</p>
+        <% end %>
+      </div>
+
+      <% if @schedule.next_appointments.after(Date.current.next_month).any? %>
+        <h2 class="h6 mt-3">Following months...</h2>
+        <div class="list-group">
+          <% @schedule.next_appointments.after(Date.current.next_month).each do |appointment| %>
+            <%= render "schedules/following_months_appointment", appointment: appointment %>
+          <% end %>
+        </div>
+      <% end %>
     </div>
   </div>
 </div>
-
 
 <div class="modal" tabindex="-1" id="exampleModalCenter1">
   <div class="modal-dialog">
