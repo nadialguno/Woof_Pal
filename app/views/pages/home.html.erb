@@ -1,11 +1,12 @@
-<div data-controller="banner">
+<div data-controller="banner" class="overflow-hidden">
+  <div class="texture"></div>
   <header id="header">
     <a href="#" class="logo">Woof-Pal</a>
     <ul>
       <li><a href="#" class="active">Home</a></li>
-      <li><a href="#">About</a></li>
-      <li><a href="#">Destination</a></li>
-      <li><a href="#">Contact</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#team">Know the Team</a></li>
+      <li><a href="#contact">Contact</a></li>
       <li> <%#= image_tag "https://avatars.githubusercontent.com/u/102878262?v=4", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %></li>
     </ul>
   </header>
@@ -18,7 +19,7 @@
     <div class="text-element text-center">
 
       <h2 id="text"><div class="fs-3">It's time for a new</div>Schedule</h2>
-      <%= link_to "Explore", new_dog_path, class: "btn btn-primary btn-lg" %>
+      <%= link_to "Get Organized", new_dog_path, class: "btn btn-primary btn-lg" %>
     </div>
 
     <img src="https://cdn3.iconfinder.com/data/icons/people-outdoors/150/21-512.png" alt="dog" id="dog">
@@ -28,22 +29,49 @@
   </section>
 </div>
 
-<div class="container marketing">
-  <div class="row text-center">
-    <div class="col-lg-4">
-      <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_bu8dvacv.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-      <h2 class="fw-normal">Scheduling</h2>
-      <p>Need help getting organized? Let us make it a breeze for you.</p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_noMu1C.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-      <h2 class="fw-normal">Vaccinations</h2>
-      <p>Don't know what vaccines your dog needs? We'll let you know which ones your dog needs and when to get them.</p>
-    </div><!-- /.col-lg-4 -->
-    <div class="col-lg-4">
-      <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_nsj5jdla.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
-      <h2 class="fw-normal">Deworming</h2>
-      <p>You won't have to worry about planning your deworming visits any longer.</p>
-    </div><!-- /.col-lg-4 -->
-  </div><!-- /.row -->
-</div><!-- /.container -->
+<div class="bg-light py-5 reverse-slant-margin">
+  <div class="container">
+    <div class="row text-center">
+      <div class="col">
+        <lottie-player src="https://assets9.lottiefiles.com/private_files/lf30_bu8dvacv.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+        <h2 class="fw-normal">Scheduling</h2>
+        <p>Need help getting organized? Let us make it a breeze for you.</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col">
+        <lottie-player src="https://assets9.lottiefiles.com/packages/lf20_noMu1C.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+        <h2 class="fw-normal">Vaccinations</h2>
+        <p>Don't know what vaccines your dog needs? We'll let you know which ones your dog needs and when to get them.</p>
+      </div><!-- /.col-lg-4 -->
+      <div class="col">
+        <lottie-player src="https://assets6.lottiefiles.com/private_files/lf30_nsj5jdla.json"  background="transparent"  speed="1"  style="width: 300px; height: 300px;"  loop  autoplay></lottie-player>
+        <h2 class="fw-normal">Deworming</h2>
+        <p>You won't have to worry about planning your deworming visits any longer.</p>
+      </div><!-- /.col-lg-4 -->
+    </div><!-- /.row -->
+  </div><!-- /.container -->
+</div>
+
+<div class="container pt-5" id="team">
+  <h2 class="text-center">Woof-Pal Team</h2>
+  <div class="row text-center team-members p-3">
+    <% @team_members.each do |team_member| %>
+      <div class="col-lg-4">
+        <div class="team-member">
+          <div class="mb-3"><%= image_tag team_member[:image], alt: team_member[:name], class: "rounded-circle img-fluid", width: 200 %></div>
+          <h3 class="mb-0"><%= team_member[:name] %></h3>
+          <div class="d-flex justify-content-center">
+            <hr class="mx-5 w-25">
+          </div>
+          <div>
+            <a class="mx-2 team-link-linkedin" href="https://ca.slack-edge.com/T02NE0241-U03BS6FSYAC-870f7bed7f95-72" target="_blank">
+              <i class="fab fa-linkedin"></i></a>
+            <a class="mx-2 team-link-github" href="https://github.com/eduardoin/" target="_blank">
+              <i class="fab fa-github"></i></a>
+            <a class="mx-2 team-link-website" href="http://eduardoin.com/" target="_blank">
+              <i class="fas fa-laptop"></i></a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

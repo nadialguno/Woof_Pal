@@ -24,3 +24,7 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+$slant-padding: 40px;
+.reverse-slant-margin {
+  margin-top: -$slant-padding;
+}
