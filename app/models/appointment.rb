@@ -12,6 +12,10 @@ class Appointment < ApplicationRecord
     self.class.name.gsub(/Appointment::/, "")
   end
 
+  def soon?
+    (scheduled_on - Date.today) < 7
+  end
+
   def self.next(dog)
     new(dog: dog, scheduled_on: dog.born_on + next_appointment_in_days(dog))
   end
