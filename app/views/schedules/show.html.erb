@@ -1,11 +1,15 @@
 
-<div class="container py-5">
+<div class="container py-5 animate__animated animate__lightSpeedInLeft">
   <div class="row justify-content-center mb-2">
     <div class="col-10">
       <h1 class="text-center"><%= @schedule.dog.name %>'s Schedule</h1>
       <div class="text-end">
-        <%= link_to "Vets near me", services_path(type: "veterinaria"), class: "btn btn-sm btn-outline-secondary me-2" %>
-        <%= link_to "Groomers near me", services_path(type: "estetica canina"), class: "btn btn-sm btn-outline-secondary" %>
+        <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
+          Vets near me
+        </button>
+        <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
+         Groomers near me
+        </button>
       </div>
     </div>
   </div>
@@ -46,6 +50,50 @@
           <% end %>
         </div>
       <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" id="exampleModalCenter1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Vets near me</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe
+          width="450"
+          height="250"
+          frameborder="0" style="border:0"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed/v1/search?key=<%= ENV["GOOGLE_API_KEY"] %>&q=Veterinaria near Condesa in CDMX"
+          allowfullscreen>
+        </iframe>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" tabindex="-1" id="exampleModalCenter2">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Groomers near me</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <iframe
+          width="450"
+          height="250"
+          frameborder="0" style="border:0"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps/embed/v1/search?key=<%= ENV["GOOGLE_API_KEY"] %>&q=estetica canina near Condesa in CDMX"
+          allowfullscreen>
+        </iframe>
+
+      </div>
     </div>
   </div>
 </div>
