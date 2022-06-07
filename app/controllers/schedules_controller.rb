@@ -8,6 +8,17 @@ class SchedulesController < ApplicationController
 
   # GET dogs/:dog_id/schedule/download
   def download
+    send_data calendar, filename: "hello.ics"
+  end
+
+  # GET dogs/:dog_id/schedule/webcal
+  def webcal
+    render plain: calendar
+  end
+
+  private
+
+  def calendar
     dog = Dog.find(params[:dog_id])
     @schedule = Schedule.new(dog)
 
@@ -21,7 +32,6 @@ class SchedulesController < ApplicationController
         e.ip_class    = "PRIVATE"
       end
     end
-
-    send_data cal.to_ical, filename: "hello.ics"
+    cal.to_ical
   end
 end
