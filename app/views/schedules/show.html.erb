@@ -95,4 +95,5 @@
     </div>
   </div>
 </div>
-<%= link_to "ytytf", "https://calendar.google.com/calendar/render?cid=#{webcal_dog_schedule_url(@schedule.dog)}" %>
+
+<%= link_to "Sync to Google Calendar", "https://calendar.google.com/calendar/render?cid=#{webcal_dog_schedule_url(@schedule.dog)}", "data-controller": "webcal-sync" %>

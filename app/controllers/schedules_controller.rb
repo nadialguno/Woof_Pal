@@ -27,11 +27,13 @@ class SchedulesController < ApplicationController
     dog = Dog.find(params[:dog_id])
     @schedule = Schedule.new(dog)
 
+    hour_offset = (params[:hour_offset] || 0).to_i.hours
+
     cal = Icalendar::Calendar.new
     @schedule.next_appointments.each do |appointment|
       cal.event do |e|
-        e.dtstart     = appointment.scheduled_on
-        e.dtend       = appointment.scheduled_on + 1.day
+        e.dtstart     = (appointment.scheduled_on + hour_offset)
+        e.dtend       = (appointment.scheduled_on + hour_offset) + 1.day
         e.summary     = "#{appointment.title} for #{dog.name}"
         e.description = appointment.description
         e.ip_class    = "PUBLIC"
