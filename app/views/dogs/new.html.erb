@@ -3,11 +3,13 @@
   <div class="row py-5 justify-content-center">
     <div class="col-lg-4">
       <div class="bg-white p-3">
-        <h1>About my pal</h1>
+        <h1 class="mb-3">About my pal</h1>
         <%= simple_form_for @dog do |f| %>
-          <div data-controller="file-display">
-            <img data-file-display-target="preview" style="height: 200px; width: 200px">
-            <%= f.input :photo, as: :file, input_html: { data: { action: "change->file-display#previewFile", file_display_target: "input" } } %>
+          <div class="text-center" data-controller="file-display">
+            <%= f.label :photo do %>
+              <%= image_tag "photo-camera.png", data: { file_display_target: "preview" }, style: "object-fit: cover; height: 200px; width: 200px", class: 'border img-fluid rounded-circle' %>
+            <% end %>
+            <%= f.input :photo, as: :file, label: false, input_html: { class: "d-none", data: { action: "change->file-display#previewFile", file_display_target: "input" } } %>
           </div>
           <%= f.input :name %>
           <%= f.input :born_on, html5: true %>
