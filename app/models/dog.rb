@@ -9,6 +9,14 @@ class Dog < ApplicationRecord
     (Date.today - born_on).days
   end
 
+  def dog
+    self
+  end
+
+  def interval
+    age_in_days
+  end
+
   def age_display
     case age_in_days.in_years
     when 0..1
