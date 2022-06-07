@@ -15,7 +15,7 @@
 
     <div class="flex-grow-1 px-3">
       <small class="<%= appointment.soon? ? 'text-danger' : 'text-muted' %>">
-        <%= distance_of_time_in_words_to_now(appointment.scheduled_on) %>
+        in <%= distance_of_time_in_words_to_now(appointment.scheduled_on) %>
       </small>
       <h3 class="h2 mb-0"><%= appointment.title %></h3>
     </div>
