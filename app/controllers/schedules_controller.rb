@@ -32,6 +32,7 @@ class SchedulesController < ApplicationController
         e.ip_class    = "PRIVATE"
       end
     end
+    cal.publish
     cal.to_ical
   end
 end
