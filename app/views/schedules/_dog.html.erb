@@ -1,11 +1,19 @@
-<div class="p-3 bg-white">
+<div class="p-3 mb-5">
   <%= cl_image_tag schedule.dog.photo.key, class: 'img-fluid rounded-circle', height: 200, width: 200, crop: :fill %>
-  <h2 class="mb-0"><%= schedule.dog.name.capitalize%><small class="h4"></small></h2>
-  <p><%= schedule.dog.age_display %> old</p>
+  <h2 class="mb-2"><%= schedule.dog.name.capitalize%><small class="h4"></small></h2>
+  <p class="mb-2"><%= schedule.dog.age_display %> old</p>
   <div class="margin-top: auto">
-    <%= link_to download_dog_schedule_path(schedule.dog), class: "btn btn-sm btn-primary" do %>
+    <%= link_to download_dog_schedule_path(schedule.dog), class: "btn btn-sm btn-primary rounded-pill" do %>
       <i class="far fa-calendar-alt"></i>
       Download Calendar
     <% end %>
   </div>
+</div>
+<div class="d-flex flex-column">
+  <button type="button" class="btn btn-sm btn-outline-secondary mb-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
+    Vets near me
+  </button>
+  <button type="button" class="btn btn-sm btn-outline-secondary rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
+    Groomers near me
+  </button>
 </div>
