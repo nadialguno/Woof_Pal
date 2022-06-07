@@ -29,7 +29,7 @@ class SchedulesController < ApplicationController
         e.dtend       = appointment.scheduled_on + 1.day
         e.summary     = "#{appointment.title} for #{dog.name}"
         e.description = appointment.description
-        e.ip_class    = "PRIVATE"
+        e.ip_class    = "PUBLIC"
       end
     end
     cal.publish
