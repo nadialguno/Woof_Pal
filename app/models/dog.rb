@@ -20,10 +20,10 @@ class Dog < ApplicationRecord
   def age_display
     case age_in_days.in_years
     when 0..1
-      if age_in_days.in_months < 1
-        "#{age_in_days.in_days.floor % 12} days"
+      if age_in_days.in_months > 1
+        "#{age_in_days.in_months.floor} months"
       else
-        "#{age_in_days.in_months.floor % 12} months"
+        "#{age_in_days.in_days.floor} days"
       end
     when 1..4
       "#{age_in_days.in_years.floor} years and #{age_in_days.in_months.floor % 12} months"
