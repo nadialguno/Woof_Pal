@@ -1,5 +1,5 @@
 <div class="p-3 mb-5">
-  <%= cl_image_tag schedule.dog.photo.key, class: 'img-fluid rounded-circle', height: 200, width: 200, crop: :fill %>
+  <%= cl_image_tag schedule.dog.photo.key, class: 'img-fluid rounded-circle shadow', height: 200, width: 200, crop: :fill %>
   <h2 class="mb-2"><%= schedule.dog.name.capitalize%><small class="h4"></small></h2>
   <p class="mb-2"><%= schedule.dog.age_display %> old</p>
   <div class="margin-top: auto">
