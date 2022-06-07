@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :dogs, only: [] do
     resource :schedule, only: [:show] do
       get "download"
+      get "webcal"
     end
   end
-
 end
