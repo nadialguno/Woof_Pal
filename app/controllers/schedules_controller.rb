@@ -1,4 +1,6 @@
 class SchedulesController < ApplicationController
+  skip_before_action :authenticate_user!, only: :webcal
+
   # GET dogs/:dog_id/schedule
   def show
     dog = Dog.find(params[:dog_id])
@@ -13,7 +15,10 @@ class SchedulesController < ApplicationController
 
   # GET dogs/:dog_id/schedule/webcal
   def webcal
-    render plain: calendar
+    respond_to do |format|
+      format.html { render plain: calendar }
+      format.ics { render plain: calendar, content_type: 'text/calendar' }
+    end
   end
 
   private
