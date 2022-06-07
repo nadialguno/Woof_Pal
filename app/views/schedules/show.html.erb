@@ -1,24 +1,16 @@
+<div class="mb-5">
+  <img src="https://raw.githubusercontent.com/nadialguno/Woof_Pal/f929a9e037d66b355bcd91a71cbdf183fdbe398f/app/assets/images/logo.svg" alt="logo" id="logo">
+</div>
+
 
 <div class="container py-5 animate__animated animate__lightSpeedInLeft">
-  <div class="row justify-content-center mb-2">
-    <div class="col-10">
-      <div class="text-end">
-        <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
-          Vets near me
-        </button>
-        <button type="button" class="btn btn-sm btn-outline-secondary me-2" data-bs-toggle="modal" data-bs-target="#exampleModalCenter2">
-         Groomers near me
-        </button>
-      </div>
-    </div>
-  </div>
   <div class="row justify-content-center">
     <div class="col-3 text-center">
       <div class="sticky-top">
         <%= render "schedules/dog", schedule: @schedule %>
       </div>
     </div>
-    <div class="col-7">
+    <div class="col-5">
       <h2>This Week...</h2>
       <div class="list-group">
         <% if @schedule.next_appointments.this_week.any? %>
