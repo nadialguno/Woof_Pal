@@ -8,5 +8,12 @@
     <div class="flex-grow-1 px-3">
       <h3 class="h6 mb-0"><%= appointment.title %></h3>
     </div>
+
+    <% year = appointment.scheduled_on.strftime("%Y").to_i %>
+    <% if year > Date.current.year %>
+      <small class="text-muted">
+        next year
+      </small>
+    <% end %>
   </div>
 </div>
