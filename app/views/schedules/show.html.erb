@@ -35,7 +35,7 @@
       <% if @schedule.next_appointments.after(Date.current.next_month).any? %>
         <h2 class="h6 mt-3">Following months...</h2>
         <div class="list-group">
-          <% @schedule.next_appointments.after(Date.current.next_month).each do |appointment| %>
+          <% @schedule.next_appointments.after(Date.current.next_month).where("scheduled_on < ?", Date.current.next_year).each do |appointment| %>
             <%= render "schedules/following_months_appointment", appointment: appointment %>
           <% end %>
         </div>
