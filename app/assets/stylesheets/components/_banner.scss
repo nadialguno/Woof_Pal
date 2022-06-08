@@ -144,12 +144,14 @@ section {
 #grass {
   position: absolute;
   bottom: -42vh;
+  height: 600px;
 }
 
 #dog {
   position: absolute;
   bottom: calc(-5vh + #{$slant-padding});
   left: -5vh;
+  height: 450px;
 }
 
 #logo {

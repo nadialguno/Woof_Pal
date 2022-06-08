@@ -16,7 +16,9 @@
   </head>
 
   <body class="flex-body">
-    <%#= render 'shared/navbar' %>
+    <% unless action_name == "home" %>
+       <%= render 'shared/navbar' %>
+    <% end %>
     <%= render 'shared/flashes' %>
 
     <div class="flex-grow-1">
