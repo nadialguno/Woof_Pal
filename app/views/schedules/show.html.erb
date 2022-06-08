@@ -1,6 +1,5 @@
-<div class="mb-5">
-  <img src="https://raw.githubusercontent.com/nadialguno/Woof_Pal/f929a9e037d66b355bcd91a71cbdf183fdbe398f/app/assets/images/logo.svg" alt="logo" id="logo">
-</div>
+
+
 
 <div class="container py-5 animate__animated animate__lightSpeedInLeft">
   <div class="row justify-content-center">
@@ -9,7 +8,7 @@
         <%= render "schedules/dog", schedule: @schedule %>
       </div>
     </div>
-    <div class="col-5">
+    <div class="col-7 px-5">
       <h2>This Week...</h2>
       <div class="list-group">
         <% if @schedule.next_appointments.this_week.any? %>
@@ -35,7 +34,7 @@
       <% if @schedule.next_appointments.after(Date.current.next_month).any? %>
         <h2 class="h6 mt-3">Following months...</h2>
         <div class="list-group">
-          <% @schedule.next_appointments.after(Date.current.next_month).each do |appointment| %>
+          <% @schedule.next_appointments.after(Date.current.next_month).where("scheduled_on < ?", Date.current.next_year).each do |appointment| %>
             <%= render "schedules/following_months_appointment", appointment: appointment %>
           <% end %>
         </div>
@@ -87,3 +86,4 @@
     </div>
   </div>
 </div>
+<%= render "schedules/calendar" %>
