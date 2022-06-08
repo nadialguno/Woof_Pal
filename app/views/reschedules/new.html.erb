@@ -1,0 +1,6 @@
+<div class="container">
+  <%= simple_form_for @appointment, as: :appointment, url: appointment_reschedule_path(@appointment), method: :post do |f| %>
+    <%= f.input :scheduled_on, html5: true %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

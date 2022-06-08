@@ -16,6 +16,7 @@ export default class extends Controller {
     let sun = document.getElementById('sun');
     let grass = document.getElementById('grass');
     let header = document.getElementById('header');
+    let logo = document.getElementById('logo');
 
     window.addEventListener('scroll', function(){
       let value = window.scrollY;
@@ -23,7 +24,8 @@ export default class extends Controller {
       text.style.transform = `translateY(${value * 0.5}px)`;
       grass.style.transform = `translateY(${value * 0.2}px)`;
       dog.style.transform = `translateY(${value * 0.5}px)`;
-      sun.style.transform = `translateY(${value * 0.5}px)`;
+      sun.style.transform = `translateY(${value * 0.7}px)`;
+      logo.style.transform = `translateY(${value * 0.8}px)`;
 
       header.style.top = value * 0.5 + 'px';
     })

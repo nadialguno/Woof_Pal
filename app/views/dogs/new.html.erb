@@ -1,9 +1,11 @@
-<img src="https://raw.githubusercontent.com/nadialguno/Woof_Pal/f929a9e037d66b355bcd91a71cbdf183fdbe398f/app/assets/images/logo.svg" alt="logo" id="logo">
+<%# <img src="https://raw.githubusercontent.com/nadialguno/Woof_Pal/f929a9e037d66b355bcd91a71cbdf183fdbe398f/app/assets/images/logo.svg" alt="logo" id="logo" class="d-none d-xl-block"> %>
+<!-- fallback for showing logo -->
+<%# <img src="https://raw.githubusercontent.com/nadialguno/Woof_Pal/f929a9e037d66b355bcd91a71cbdf183fdbe398f/app/assets/images/logo.svg" alt="logo" class="d-block d-xl-none" width=200> %>
 
 <div class="container">
   <div class="row py-5 justify-content-center">
-    <div class="col-lg-4">
-      <div class="bg-white p-3">
+    <div class="col-md-8 col-lg-4">
+      <div class="p-3 bg-light">
         <h1 class="mb-3">About my pal</h1>
         <%= simple_form_for @dog do |f| %>
           <div class="text-center" data-controller="file-display">
@@ -13,13 +15,13 @@
             <%= f.input :photo, as: :file, label: false, input_html: { class: "d-none", data: { action: "change->file-display#previewFile", file_display_target: "input" } } %>
           </div>
           <%= f.input :name %>
-          <%= f.input :born_on, html5: true %>
+          <%= f.input :born_on, html5: true, input_html: {class: "datepicker"} %>
           <%= f.button :submit, "See schedule", class: "btn btn-primary w-100 rounded-2" %>
         <% end %>
       </div>
     </div>
-    <div class="col-lg-3 form_image">
-      <lottie-player src="https://assets8.lottiefiles.com/temporary_files/BCOFAS.json"  background="transparent"  speed="1"  style="width: 300px; height: 400px;"  loop  autoplay></lottie-player>
+    <div class="d-none d-lg-block col-lg-3 form_image">
+      <lottie-player src="https://assets8.lottiefiles.com/temporary_files/BCOFAS.json"  background="transparent"  speed="1"  style="width: 400px; height: 500px;"  loop  autoplay></lottie-player>
     </div>
   </div>
 </div>
