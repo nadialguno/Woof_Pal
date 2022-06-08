@@ -7,4 +7,8 @@ class Appointment::Deworming < Appointment
   def description
     "[] Deworm #{dog.name}"
   end
+
+  def tip
+    "Don't forget to ask your vet about external parasites treatment once a month"
+  end
 end

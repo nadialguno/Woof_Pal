@@ -8,7 +8,7 @@ class Appointment < ApplicationRecord
   scope :grooming, -> { where(type: "Appointment::Grooming") }
   scope :vaccination, -> { where(type: "Appointment::Vaccination") }
   scope :this_week, -> { where("scheduled_on BETWEEN :today AND :next_week", today: Date.current, next_week: Date.current.next_week) }
-  scope :this_month, -> { where("scheduled_on BETWEEN :next_week AND :next_month", next_week: Date.current.next_week, next_month: Date.current.next_month) }
+  scope :this_month, -> { where("scheduled_on BETWEEN :next_week AND :next_month", next_week: Date.current.next_week + 1.day, next_month: Date.current.next_month) }
 
   def title
     self.class.name.gsub(/Appointment::/, "")
