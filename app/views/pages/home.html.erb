@@ -1,10 +1,10 @@
 <div data-controller="banner" class="overflow-hidden">
   <header class="justify-content-end" id="header">
     <ul>
-      <li><a href="#" class="active">Home</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#team">Know the Team</a></li>
-      <li><a href="#contact">Contact</a></li>
+      <%# <li><a href="#" class="active">Home</a></li> %>
+      <%# <li><a href="#about">About</a></li> %>
+      <%# <li><a href="#team">Know the Team</a></li> %>
+      <%# <li><a href="#contact">Contact</a></li> %>
     </ul>
   </header>
 
@@ -51,12 +51,12 @@
 </div>
 
 <div class="container pt-5" id="team">
-  <h2 class="text-center">Woof-Pal Team</h2>
+  <h2 class="text-center">WoofPal Team</h2>
   <div class="row text-center team-members p-3">
     <% @team_members.each do |team_member| %>
       <div class="col-lg-4">
         <div class="team-member">
-          <div class="mb-3"><%= image_tag team_member[:image], alt: team_member[:name], class: "rounded-circle img-fluid", width: 200 %></div>
+          <div class="mb-3"><%= image_tag team_member[:image], alt: team_member[:name], class: "rounded-circle img-fluid shadow", width: 200 %></div>
           <h3 class="mb-0"><%= team_member[:name] %></h3>
           <div class="d-flex justify-content-center">
             <hr class="mx-5 w-25">
