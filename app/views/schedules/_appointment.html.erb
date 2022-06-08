@@ -5,12 +5,14 @@
 <div class="list-group-item mb-1 border-0 bg-none py-3 rounded-pill">
   <div class="d-flex w-100 justify-content-between">
     <div class="text-center">
-      <div>
-        <%= appointment.scheduled_on.strftime("%b") %>
-      </div>
-      <div class="fs-2">
-        <%= appointment.scheduled_on.strftime("%d") %>
-      </div>
+      <%= link_to new_appointment_reschedule_path(appointment) do %>
+        <div>
+          <%= appointment.scheduled_on.strftime("%b") %>
+        </div>
+        <div class="fs-2">
+          <%= appointment.scheduled_on.strftime("%d") %>
+        </div>
+      <% end %>
     </div>
 
     <div class="flex-grow-1 px-3">

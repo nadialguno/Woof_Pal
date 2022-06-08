@@ -8,6 +8,10 @@
       Download Calendar
     <% end %>
   </div>
+   <div class="margin-top: auto">
+    <%= link_to "Sync to Google Calendar", "https://calendar.google.com/calendar/render?cid=#{webcal_dog_schedule_url(@schedule.dog)}", "data-controller": "webcal-sync" %>
+      <i class="far fa-calendar-alt"></i>
+  </div>
 </div>
 <div class="d-flex flex-column">
   <button type="button" class="btn btn-sm btn-outline-secondary mb-2 rounded-pill" data-bs-toggle="modal" data-bs-target="#exampleModalCenter1">
