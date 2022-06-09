@@ -8,9 +8,6 @@ import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import "@lottiefiles/lottie-player";
-import { initFlatpickr } from "../plugins/flatpickr";
-
-initFlatpickr();
 
 Rails.start()
 Turbolinks.start()
