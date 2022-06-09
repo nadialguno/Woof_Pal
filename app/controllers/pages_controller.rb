@@ -9,7 +9,7 @@ class PagesController < ApplicationController
       },
       {
         name: "Nadia Isela",
-        image: "https://ca.slack-edge.com/T02NE0241-U03AYCT88MT-f39428141082-512",
+        image: "nadia.jpg",
       },
       {
         name: "Joel Pickell",
