@@ -15,7 +15,7 @@ class ReschedulesController < ApplicationController
       # Get delta between old and new date
       delta = new_date - old_date
       # Add delta to all future persisted appointments of the same kind
-      next_appointments.each do |appointment|
+      next_appointments.where.not(id: @appointment).each do |appointment|
         appointment.update(scheduled_on: appointment.scheduled_on + delta)
       end
 
