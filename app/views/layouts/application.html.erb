@@ -15,13 +15,15 @@
 
   </head>
 
-  <body>
-   <% unless action_name == "home" %>
+  <body class="flex-body">
+    <% unless action_name == "home" %>
        <%= render 'shared/navbar' %>
     <% end %>
     <%= render 'shared/flashes' %>
 
-    <%= yield %>
+    <div class="flex-grow-1">
+      <%= yield %>
+    </div>
     <%= render 'shared/footer' %>
   </body>
 </html>
