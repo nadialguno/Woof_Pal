@@ -56,7 +56,7 @@
     <% @team_members.each do |team_member| %>
       <div class="col-lg-4">
         <div class="team-member">
-          <div class="mb-3"><%= image_tag team_member[:image], alt: team_member[:name], class: "rounded-circle img-fluid shadow", width: 200 %></div>
+          <div class="mb-3"><%= image_tag team_member[:image], alt: team_member[:name], class: "rounded-circle img-fluid shadow", style: "width: 200px; height: 200px; object-fit: cover" %></div>
           <h3 class="mb-0"><%= team_member[:name] %></h3>
           <div class="d-flex justify-content-center">
             <hr class="mx-5 w-25">
