@@ -7,4 +7,8 @@ class Appointment::Vaccination < Appointment
   def description
     "[] Vaccinate #{dog.name}"
   end
+
+  def tip
+    "Each dog has unique needs, so please check with your vet about appropriate vaccines and times to vaccinate your pal"
+  end
 end
