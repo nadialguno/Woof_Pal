@@ -4,13 +4,8 @@
 
 <div class="appointment-item list-group-item mb-1 border-0 bg-light py-3 px-5 rounded-pill">
   <div class="d-flex w-100 justify-content-between">
-<<<<<<< Updated upstream
-    <div class="text-center pe-3 border-end d-flex align-items-center">
-      <%= link_to new_appointment_reschedule_path(appointment) do %>
-=======
-    <div class="text-center pe-3 border-end position-relative">
+    <div class="text-center pe-3 border-end d-flex align-items-center position-relative">
       <%= link_to new_appointment_reschedule_path(appointment), class: "text-decoration-none appointment-links" do %>
->>>>>>> Stashed changes
         <div>
           <%= appointment.scheduled_on.strftime("%b") %>
         </div>
