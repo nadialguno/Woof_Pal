@@ -21,7 +21,7 @@
       </div>
 
       <h2 class="h4 mt-3">This Month...</h2>
-      <div class="list-group">
+      <div class="list-group text">
         <% if @schedule.next_appointments.this_month.any? %>
           <% @schedule.next_appointments.this_month.each do |appointment| %>
             <%= render "schedules/next_month_appointment", appointment: appointment %>
