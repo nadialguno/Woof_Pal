@@ -3,7 +3,7 @@ class Dog < ApplicationRecord
   has_one_attached :photo
   has_many :appointments
 
-  validates :name, :born_on, presence: true
+  validates :name, :born_on, :photo, presence: true
 
   def age_in_days
     (Date.today - born_on).days
