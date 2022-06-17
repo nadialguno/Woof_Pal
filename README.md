@@ -1,6 +1,5 @@
 ## Woof Pal
 #### Woof Pal is web app created by 3 student developers as their final project. Check out the website here: [Woof Pal](http://www.woofpal.net/)
-<a href="http://www.woofpal.net" target="_blank">Woof Pal</a>
 
 ##### Description
 
